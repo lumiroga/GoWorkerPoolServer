@@ -29,6 +29,6 @@ func main() {
 
 	go Generator(generator)
 	go Double(generator, doubles)
-	Print(doubles)
+	Print(doubles) //without go keyword the program doesn't lock
 
 }
