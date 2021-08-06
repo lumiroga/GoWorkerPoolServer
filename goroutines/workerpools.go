@@ -22,9 +22,9 @@ func Worker(id int, jobs <-chan int, results chan<- int) {
 
 func main() {
 	tasks := []int{2, 3, 4, 5, 6, 10, 31, 32}
-	nWorkers := 3 //qty of operations at the same time
-	jobs := make(chan int, len(tasks))
-	results := make(chan int, len(tasks))
+	nWorkers := 4 //qty of operations at the same time
+	jobs := make(chan int, len(tasks)-2)
+	results := make(chan int, len(tasks)-2)
 
 	for i := 0; i < nWorkers; i++ {
 		go Worker(i, jobs, results)
